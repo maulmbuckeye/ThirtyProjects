@@ -16,6 +16,15 @@ class HangmanWord:
     def guesses(self):
         return self.guessed_letters
 
+    def is_done(self):
+        for l in self.word_to_guess:
+            if l not in self.guessed_letters:
+                return False
+        return True
+
+    def secret_word(self):
+        return self.word_to_guess
+
 
 if __name__ == "__main__":
     HangmanWord("foobar")
