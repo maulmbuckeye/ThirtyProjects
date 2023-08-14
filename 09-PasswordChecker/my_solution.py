@@ -1,3 +1,7 @@
+# Class based password checker
+#
+# This comment mainly added to test rebasing
+
 class PasswordResult:
 
     def __init__(self, result: bool, msg=''):
