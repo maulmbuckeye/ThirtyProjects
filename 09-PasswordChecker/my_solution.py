@@ -4,6 +4,9 @@ class PasswordResult:
         self._result = result
         self._msg = msg
 
+    def __bool__(self) -> bool:
+        return self._result
+
 
 class BadPasswords:
 
@@ -21,7 +24,7 @@ class BadPasswords:
 
 
 def password_check(possible_password: str,
-                   list_of_bad: str = "passwords.text") -> tuple[bool, str]:
+                   list_of_bad: str = "passwords.text") -> PasswordResult:
     """Return (True, '') if password is okay,
     otherwise return (False, "reason").
 
@@ -33,7 +36,8 @@ def password_check(possible_password: str,
             bp = BadPasswords(file.read().splitlines())
     except Exception as _:
         bp = BadPasswords(["password", "passwd", "mike_ulm"])
-    return bp.is_ok_and_rank(possible_password)
+    return PasswordResult(*bp.is_ok_and_rank(possible_password))
+
 
 
 def request_and_check_password():
