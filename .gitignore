@@ -1,0 +1,10 @@
+# from PyCharm gitignore template
+**/__pycache__/**
+**/.idea/**
+
+# This should eventually become part of global exclude
+**/*.swp
+
+# Specific for this repo
+# A clone from the teacher's repo
+python_projects
